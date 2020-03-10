@@ -34,6 +34,7 @@ class _HomeBodyState extends State<HomeBody> {
   @override
   void initState() {
     super.initState();
+
     HttpRequest.request('http://47.97.251.68:3000/call/activeCall').then((res) {
       print(res.data);
       List<HomeModel> users = [];

@@ -16,7 +16,10 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
         debugShowCheckedModeBanner: false,
         title: '馨安家园',
-        theme: ThemeData(primaryColor: Colors.green),
+        theme: ThemeData(
+          primaryColor: Colors.black,
+          brightness: Brightness.dark,
+        ),
         home: MyStatckpage());
   }
 }
@@ -35,7 +38,9 @@ class _MyStatckpageState extends State<MyStatckpage> {
   Widget build(BuildContext context) {
     return Scaffold(
         bottomNavigationBar: BottomNavigationBar(
-          selectedItemColor: Colors.green,
+          backgroundColor: Colors.black,
+          selectedFontSize: 18,
+          selectedItemColor: Color.fromRGBO(0, 204, 187, 1),
           currentIndex: _currentIndex,
           items: [
             BottomNavigationBarItem(icon: Icon(Icons.home), title: Text('首页')),
