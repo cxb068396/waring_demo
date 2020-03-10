@@ -11,6 +11,7 @@ class HistoryItem extends StatelessWidget {
     return Card(
       margin: EdgeInsets.all(10),
       elevation: 10,
+      color: Colors.white,
       child: Container(
         padding: EdgeInsets.all(10),
         // decoration: BoxDecoration(
@@ -27,7 +28,7 @@ class HistoryItem extends StatelessWidget {
                     DateFormat.yMd()
                         .add_jm()
                         .format(DateTime.parse(item.createdAt)),
-                style: TextStyle(fontSize: 14, color: Colors.red),
+                style: TextStyle(fontSize: 14, color: Colors.grey),
               ),
             ),
             SizedBox(height: 12),

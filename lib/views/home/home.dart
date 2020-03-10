@@ -34,17 +34,7 @@ class _HomeBodyState extends State<HomeBody> {
   @override
   void initState() {
     super.initState();
-
-    HttpRequest.request('http://47.97.251.68:3000/call/activeCall').then((res) {
-      print(res.data);
-      List<HomeModel> users = [];
-      for (var user in res.data) {
-        users.add(HomeModel.fromJson(user));
-      }
-      setState(() {
-        this.userList = users;
-      });
-    });
+    this._getData();
   }
 
   Widget build(BuildContext context) {
@@ -55,5 +45,19 @@ class _HomeBodyState extends State<HomeBody> {
         return HomeListItem(userList[index]);
       },
     ));
+  }
+
+//获得首页的数据
+  void _getData() {
+    HttpRequest.request('http://47.97.251.68:3000/call/activeCall').then((res) {
+      print(res.data);
+      List<HomeModel> users = [];
+      for (var user in res.data) {
+        users.add(HomeModel.fromJson(user));
+      }
+      setState(() {
+        this.userList = users;
+      });
+    });
   }
 }

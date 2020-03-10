@@ -33,69 +33,88 @@ class HomeListItem extends StatelessWidget {
             ),
             SizedBox(height: 12),
             Container(
-              width: double.infinity,
-              padding: EdgeInsets.symmetric(vertical: 5, horizontal: 9),
-              child: Column(
-                children: <Widget>[
-                  Row(
-                    children: <Widget>[
-                      Text('警报楼号：',
-                          style:
-                              TextStyle(fontSize: 14, color: Colors.black54)),
-                      Container(
-                        padding:
-                            EdgeInsets.symmetric(vertical: 5, horizontal: 9),
-                        decoration: BoxDecoration(
-                            color: Color.fromARGB(255, 238, 205, 144),
-                            borderRadius: BorderRadius.circular(5)),
-                        child: Text(
-                          item.building + '号楼',
-                          style: TextStyle(fontSize: 18, color: Colors.white),
+                width: double.infinity,
+                padding: EdgeInsets.symmetric(vertical: 5, horizontal: 9),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: <Widget>[
+                    Column(
+                      children: <Widget>[
+                        Row(
+                          children: <Widget>[
+                            Text('警报楼号：',
+                                style: TextStyle(
+                                    fontSize: 14, color: Colors.black54)),
+                            Container(
+                              padding: EdgeInsets.symmetric(
+                                  vertical: 5, horizontal: 9),
+                              decoration: BoxDecoration(
+                                  color: Colors.red,
+                                  borderRadius: BorderRadius.circular(5)),
+                              child: Text(
+                                item.building + '号楼',
+                                style: TextStyle(
+                                    fontSize: 18, color: Colors.white),
+                              ),
+                            )
+                          ],
                         ),
-                      )
-                    ],
-                  ),
-                  SizedBox(height: 12),
-                  Row(
-                    children: <Widget>[
-                      Text('警报楼层：',
-                          style:
-                              TextStyle(fontSize: 14, color: Colors.black54)),
-                      Container(
-                        padding:
-                            EdgeInsets.symmetric(vertical: 5, horizontal: 9),
-                        decoration: BoxDecoration(
-                            color: Color.fromARGB(255, 238, 205, 144),
-                            borderRadius: BorderRadius.circular(5)),
-                        child: Text(
-                          item.floor + '层',
-                          style: TextStyle(fontSize: 18, color: Colors.white),
+                        SizedBox(height: 12),
+                        Row(
+                          children: <Widget>[
+                            Text('警报楼层：',
+                                style: TextStyle(
+                                    fontSize: 14, color: Colors.black54)),
+                            Container(
+                              padding: EdgeInsets.symmetric(
+                                  vertical: 5, horizontal: 9),
+                              decoration: BoxDecoration(
+                                  color: Colors.red,
+                                  borderRadius: BorderRadius.circular(5)),
+                              child: Text(
+                                item.floor + '层',
+                                style: TextStyle(
+                                    fontSize: 18, color: Colors.white),
+                              ),
+                            )
+                          ],
                         ),
-                      )
-                    ],
-                  ),
-                  SizedBox(height: 12),
-                  Row(
-                    children: <Widget>[
-                      Text('警报楼床：',
-                          style:
-                              TextStyle(fontSize: 14, color: Colors.black54)),
-                      Container(
-                        padding:
-                            EdgeInsets.symmetric(vertical: 5, horizontal: 9),
-                        decoration: BoxDecoration(
-                            color: Color.fromARGB(255, 238, 205, 144),
-                            borderRadius: BorderRadius.circular(5)),
-                        child: Text(
-                          item.bed + '床',
-                          style: TextStyle(fontSize: 18, color: Colors.white),
+                        SizedBox(height: 12),
+                        Row(
+                          children: <Widget>[
+                            Text('警报楼床：',
+                                style: TextStyle(
+                                    fontSize: 14, color: Colors.black54)),
+                            Container(
+                              padding: EdgeInsets.symmetric(
+                                  vertical: 5, horizontal: 9),
+                              decoration: BoxDecoration(
+                                  color: Colors.red,
+                                  borderRadius: BorderRadius.circular(5)),
+                              child: Text(
+                                item.bed + '床',
+                                style: TextStyle(
+                                    fontSize: 18, color: Colors.white),
+                              ),
+                            )
+                          ],
                         ),
-                      )
-                    ],
-                  ),
-                ],
-              ),
-            ),
+                      ],
+                    ),
+                    FlatButton(
+                      color: Colors.red,
+                      highlightColor: Colors.blue[700],
+                      colorBrightness: Brightness.dark,
+                      splashColor: Colors.grey,
+                      child: Text("了解"),
+                      shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(5)),
+                      onPressed: () {
+                        print('123');
+                      },
+                    )
+                  ],
+                )),
             SizedBox(height: 12),
             Container(
               padding: EdgeInsets.all(12),
