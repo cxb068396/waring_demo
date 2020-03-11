@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:waring_demo/models/home_model.dart';
 import 'package:waring_demo/network/http_request.dart';
 import 'package:intl/intl.dart';
+import 'dart:async';
 
 //import 'home_child/home_child.dart';
 
@@ -30,12 +31,13 @@ class HomeBody extends StatefulWidget {
 
 class _HomeBodyState extends State<HomeBody> {
   List<HomeModel> userList = [];
+  Timer _timer;
+
   get index => null;
   @override
   void initState() {
     super.initState();
-
-    this._getData();
+    this._startTimer();
   }
 
   Widget build(BuildContext context) {
@@ -188,6 +190,15 @@ class _HomeBodyState extends State<HomeBody> {
       }
       setState(() {
         this.userList = users;
+      });
+    });
+  }
+
+  void _startTimer() {
+    /*创建循环*/
+    _timer = new Timer.periodic(new Duration(seconds: 3), (timer) {
+      setState(() {
+        this._getData();
       });
     });
   }
