@@ -34,28 +34,33 @@ class MyStatckpage extends StatefulWidget {
 
 class _MyStatckpageState extends State<MyStatckpage> {
   var _currentIndex = 0;
+  final PageController _controller = PageController(
+    initialPage: 0,
+  );
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        bottomNavigationBar: BottomNavigationBar(
-          backgroundColor: Colors.black,
-          selectedFontSize: 18,
-          selectedItemColor: Color.fromRGBO(0, 204, 187, 1),
-          currentIndex: _currentIndex,
-          items: [
-            BottomNavigationBarItem(icon: Icon(Icons.home), title: Text('首页')),
-            BottomNavigationBarItem(
-                icon: Icon(Icons.history), title: Text('记录'))
-          ],
-          onTap: (index) {
-            setState(() {
-              _currentIndex = index;
-            });
-          },
-        ),
-        body: IndexedStack(
-          index: _currentIndex,
-          children: <Widget>[Home(), History()],
-        ));
+      body: PageView(
+        controller: _controller,
+        children: <Widget>[Home(), History()],
+      ),
+      bottomNavigationBar: BottomNavigationBar(
+        type: BottomNavigationBarType.fixed,
+        backgroundColor: Colors.black,
+        selectedFontSize: 18,
+        selectedItemColor: Color.fromRGBO(0, 204, 187, 1),
+        currentIndex: _currentIndex,
+        items: [
+          BottomNavigationBarItem(icon: Icon(Icons.home), title: Text('首页')),
+          BottomNavigationBarItem(icon: Icon(Icons.history), title: Text('记录'))
+        ],
+        onTap: (index) {
+          _controller.jumpToPage(index);
+          setState(() {
+            _currentIndex = index;
+          });
+        },
+      ),
+    );
   }
 }
